@@ -9,3 +9,9 @@
 
 // If you want to turn off dark background for syntax highlighting, comment or delete the below line.
 @import "minima/fastpages-dracula-highlight"; 
+
+// properly display RSS icon
+.svg-icon {
+  width: 23px;
+  height: 23px;
+}
