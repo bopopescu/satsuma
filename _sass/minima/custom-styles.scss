@@ -10,17 +10,8 @@
 // If you want to turn off dark background for syntax highlighting, comment or delete the below line.
 @import "minima/fastpages-dracula-highlight"; 
 
-// properly display RSS icon
-.svg-icon {
-  width: 23px;
-  height: 23px;
-}
-
 // font size
 .post-content p, .post-content li {
    font-size: 120%;
    color: #515151;
 }
-
-// expand width of posts
-.wrapper { width: 25% !important; max-width: 25% !important; }
