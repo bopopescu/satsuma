@@ -14,7 +14,7 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   update-notebooks:
-    if: (github.event_name == 'schedule' || (github.event.issue.title == '[dashboard] Refresh Notebooks' && github.actor =='stevhliu' && github.event_name == 'issues')) && github.repository == 'stevhliu/CL4P-TP'
+    if: (github.event_name == 'schedule' || (github.event.issue.title == '[dashboard] Refresh Notebooks' && github.actor =='stevhliu' && github.event_name == 'issues')) && github.repository == 'stevhliu/satsuma'
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -42,7 +42,7 @@ jobs:
             issue_number: context.issue.number,
             owner: context.repo.owner,
             repo: context.repo.repo,
-            body: 'Automated refresh of notebooks instantiated with run id [${run_id}](https://github.com/stevhliu/CL4P-TP/actions/runs/${run_id}).'
+            body: 'Automated refresh of notebooks instantiated with run id [${run_id}](https://github.com/stevhliu/satsuma/actions/runs/${run_id}).'
           })
       env: 
         RUN_ID: ${{ github.run_id        }}
@@ -86,7 +86,7 @@ jobs:
             owner: context.repo.owner,
             repo: context.repo.repo,
             title: "Error updating notebooks",
-            body: `These are the notebooks that failed to update properly: \n${err}\n\n See run [${run_id}](https://github.com/stevhliu/CL4P-TP/actions/runs/${run_id}) for more details.`
+            body: `These are the notebooks that failed to update properly: \n${err}\n\n See run [${run_id}](https://github.com/stevhliu/satsuma/actions/runs/${run_id}) for more details.`
           })
       env:
         ERROR_STRING: ${{ steps.update_nb.outputs.error_str }}
@@ -139,7 +139,7 @@ jobs:
             issue_number: context.issue.number,
             owner: context.repo.owner,
             repo: context.repo.repo,
-            body: `An error occurred when attempting to refresh one or more of the notebooks in run [${run_id}](https://github.com/stevhliu/CL4P-TP/actions/runs/${run_id}). These are the notebooks that failed to update properly: \n${err}`
+            body: `An error occurred when attempting to refresh one or more of the notebooks in run [${run_id}](https://github.com/stevhliu/satsuma/actions/runs/${run_id}). These are the notebooks that failed to update properly: \n${err}`
           })
       env:
         ERROR_STRING: ${{ steps.update_nb.outputs.error_str }}
@@ -156,7 +156,7 @@ jobs:
             issue_number: context.issue.number,
             owner: context.repo.owner,
             repo: context.repo.repo,
-            body: `An workflow error occurred in run [${run_id}](https://github.com/stevhliu/CL4P-TP/actions/runs/${run_id}) when attempting to refresh the notebooks.`
+            body: `An workflow error occurred in run [${run_id}](https://github.com/stevhliu/satsuma/actions/runs/${run_id}) when attempting to refresh the notebooks.`
           })
       env:
         RUN_ID: ${{ github.run_id	 }}
